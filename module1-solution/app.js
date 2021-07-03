@@ -36,6 +36,9 @@ function LunchCheckController($scope) {
 
 	$scope.checkIfTooManyDishes = function () {
 
+		if ($scope.inputString == "list comma separated dishes you usually have for lunch")
+			$scope.inputString = "";
+
 		console.log("Input String:" + $scope.inputString);
 
 		var inputStringWhitespaceRemoved = "";	
