@@ -6,21 +6,7 @@ angular.module('LunchCheck', [])
 
 LunchCheckController.$inject = ['$scope'];
 
-function LunchCheckController($scope) {
-
-	// Text and input box colour code
-	//$scope.alertColour = "red";
-	// $scope.customStyle = {};
-	// $scope.turnGreen = function () {
-	//     $scope.customStyle.textColorClass = "textGreen";
-	//     $scope.customStyle.borderColorClass = "borderGreen";
-	// }
-
-	// $scope.turnRed = function() {
-	//     $scope.customStyle.textColorClass = "textRed";
-	//     $scope.customStyle.borderColorClass = "borderRed";
-	// }
-	// // end of text and input box colour code
+function LunchCheckController($scope) {	
 
 	$scope.inputString = "list comma separated dishes you usually have for lunch";
 	$scope.message = "";
