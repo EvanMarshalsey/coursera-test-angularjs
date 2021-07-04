@@ -9,17 +9,18 @@ LunchCheckController.$inject = ['$scope'];
 function LunchCheckController($scope) {
 
 	// Text and input box colour code
-	$scope.customStyle = {};
-	$scope.turnGreen = function () {
-	    $scope.customStyle.textColorClass = "textGreen";
-	    $scope.customStyle.borderColorClass = "borderGreen";
-	}
+	//$scope.alertColour = "red";
+	// $scope.customStyle = {};
+	// $scope.turnGreen = function () {
+	//     $scope.customStyle.textColorClass = "textGreen";
+	//     $scope.customStyle.borderColorClass = "borderGreen";
+	// }
 
-	$scope.turnRed = function() {
-	    $scope.customStyle.textColorClass = "textRed";
-	    $scope.customStyle.borderColorClass = "borderRed";
-	}
-	// end of text and input box colour code
+	// $scope.turnRed = function() {
+	//     $scope.customStyle.textColorClass = "textRed";
+	//     $scope.customStyle.borderColorClass = "borderRed";
+	// }
+	// // end of text and input box colour code
 
 	$scope.inputString = "list comma separated dishes you usually have for lunch";
 	$scope.message = "";
@@ -67,15 +68,15 @@ function LunchCheckController($scope) {
 		console.log("Number of Valid Dishes (Not whitespace and length > 0): " + numberOfDishes);
 
 		if (numberOfDishes == 0) {		
-			$scope.turnRed();			
+			$scope.alertColour = "red";		
 			$scope.message = "Please enter data first";
 		}
 		else if (numberOfDishes <= 3) {		
-			$scope.turnGreen();			
+			$scope.alertColour = "green";		
 			$scope.message = "Enjoy!";
 		}
 		else {
-			$scope.turnGreen();
+			$scope.alertColour = "green";
 			$scope.message = "Too Much!";
 		}
 	};
