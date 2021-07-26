@@ -11,20 +11,41 @@ function MenuDataService($http, ApiBasePath) {
 
   var items = [];
 
-  service.getAllCategories() = function () {
+  service.getAllCategories = function () {
     console.log("getAllCategories");
     return $http({
     	method: "GET",
     	url: (ApiBasePath + "/categories.json")
-    });
+    }).then(function (response) {
+            var categories = [];
+            var data = response.data;
+            for(var i = 0; i < data.length; ++i) {
+                categories.push(data[i]); 
+            }
+
+            return categories;
+            
+         }).catch(function (error) {
+            console.log("Something went wrong");
   };
 
 
-  service.getItemsForCategory(categoryShortName) = function () {
+  service.getItemsForCategory = function (categoryShortName) {
     return $http({
     	method: "GET",
     	url: (ApiBasePath + "/menu_items.json?category={categoryShortName}")
-    });
+    }).then(function (response) {
+            var items = [];
+            var data = response.data.menu_items;
+            for(var i = 0; i < data.length; ++i) {
+             
+                items.push(data[i]);
+              
+            }
+            return items;
+            
+         }).catch(function (error) {
+            console.log("Something went wrong");
   };
 
 };
