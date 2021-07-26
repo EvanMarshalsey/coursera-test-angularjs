@@ -1,4 +1,6 @@
-<div>Item id: {{ itemDetail.id }}</div>
-<div>Item name: {{ itemDetail.name }}</div>
-<div>Item short name: {{ itemDetail.short_name }}</div>
-<div>Item special instructions: {{ itemDetail.special_instructions }}</div>
+<ul>
+  <li ng-repeat="item in $ctrl.list">
+   {{ item.name }}
+  </li>
+</ul>
+

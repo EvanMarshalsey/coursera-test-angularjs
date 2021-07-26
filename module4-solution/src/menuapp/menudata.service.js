@@ -12,7 +12,6 @@ function MenuDataService($http, ApiBasePath) {
   var items = [];
 
   service.getAllCategories = function () {
-    console.log("getAllCategories");
     return $http({
     	method: "GET",
     	url: (ApiBasePath + "/categories.json")
@@ -21,20 +20,23 @@ function MenuDataService($http, ApiBasePath) {
             var data = response.data;
             for(var i = 0; i < data.length; ++i) {
                 categories.push(data[i]); 
-            }
+        }
 
             return categories;
             
          }).catch(function (error) {
             console.log("Something went wrong");
-  };
+            });
+    };
 
 
   service.getItemsForCategory = function (categoryShortName) {
+    console.log("getItemsForCategory");    
     return $http({
     	method: "GET",
-    	url: (ApiBasePath + "/menu_items.json?category={categoryShortName}")
+    	url: (ApiBasePath + "/menu_items.json?category=" + categoryShortName)
     }).then(function (response) {
+        console.log(response);    
             var items = [];
             var data = response.data.menu_items;
             for(var i = 0; i < data.length; ++i) {
@@ -42,12 +44,15 @@ function MenuDataService($http, ApiBasePath) {
                 items.push(data[i]);
               
             }
+            console.log("Items:" + items[0].name);
             return items;
             
-         }).catch(function (error) {
+        }).catch(function (error) {
             console.log("Something went wrong");
-  };
+            });
 
-};
+    };
+
+}
 
 })();
